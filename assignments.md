@@ -36,9 +36,10 @@ There is a large literature about forecasting elections. Here are some rough ide
 - Hypotheses about experts vs simple algorithms vs complex algorithms
 - Hypotheses about the accuracy of different approaches to prediction (e.g., individuals vs teams)
 
-Here are some papers that might provide more ideas:
+Here are some papers that might provide additional ideas:
 
 - Nadeau, R., Dassonneville, R., Lewis-Beck, M., & Mongrain, P. (2019). [Are election results more unpredictable? A forecasting test](https://dx.doi.org/10.1017/psrm.2019.24). _Political Science Research and Methods_.
+
 If you find other papers that are helpful, please share them with us.
 
 ## Assignment 2, Replication and extension of [Muchlinksi et al. (2016)](https://doi.org/10.1093/pan/mpv024): Random forest vs logistic regression
