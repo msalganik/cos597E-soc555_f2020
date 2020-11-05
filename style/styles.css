@@ -1,0 +1,170 @@
+html, body {
+	background: #eee;
+}
+@media screen and (max-width: 69.999rem) {
+	html, body { margin: 0; padding: 0 }
+}
+
+* {
+	box-sizing: border-box;
+}
+
+h1, h2, h3, p, li, blockquote, th, td, a {
+	font-family: 'Open Sans', sans-serif;
+}
+
+code {
+	font-size: 100%;
+	font-family: 'Inconsolata', monospace;
+	color: #444;
+	padding: 2px 4px;
+}
+
+h1, h2, h3 {
+	margin: 2rem 0 .2rem;
+}
+
+h1 {
+	font-weight: normal;
+	letter-spacing: -.04em;
+	margin-bottom: .5rem;
+/*	text-transform: uppercase; */
+}
+
+h3 {
+	font-weight: normal;
+}
+
+h2 + h3 {
+	margin-top: 1rem;
+}
+
+p, li {
+	margin: 0 0 .7rem;
+}
+
+li ul li {
+	margin-top: .7rem;
+}
+
+table {
+	border-collapse: collapse;
+	margin-bottom: 1rem;
+}
+
+td, th {
+	text-align: left;
+	vertical-align: top;
+	padding: 10px;
+	border: 1px solid #ddd;
+}
+
+table tr:nth-child(odd) td, table tr:nth-child(odd) th {
+	background: #eee;
+}
+
+a {
+	text-decoration: none;
+	border-bottom: 3px solid rgba(0, 0, 238, .1);
+}
+
+a:visited {
+	border-bottom-color: rgba(85, 26, 139, .1);
+}
+
+a:hover {
+	border-bottom-color: rgba(0, 0, 238, .3);
+}
+
+a[href$='.pdf'] {
+	background: transparent url(pdf.png) center left no-repeat;
+	display: inline-block;
+	padding-left: 18px;
+}
+
+.subtitle {
+	border-bottom: 3px solid rgba(0, 0, 0, .1);
+	padding-bottom: .5rem;
+	margin-bottom: 1rem;
+}
+
+.column {
+	max-width: 47rem;
+	margin: 0 auto;
+	padding: 1.5rem;
+	background: white;
+}
+@media screen and (max-width: 69.999rem) {
+	.column { padding: 1rem; }
+}
+
+.important {
+	background: #ddd;
+	padding: 1rem 1rem 0.5rem;
+	margin: 1rem 0;
+}
+
+/*
+@media screen and (min-width: 70rem) {
+	nav {
+		float: left;
+		margin-left: -12rem;
+		width: 12rem;
+		padding-right: 3rem;
+		margin-top: 100px;
+	}
+}
+@media screen and (max-width: 69.999rem) {
+	nav {
+		border-bottom: 3px solid rgba(0, 0, 0, .1);
+		padding-bottom: .5rem;
+		margin-bottom: 1rem;
+	}
+}
+*/
+
+/*
+nav ul, nav li {
+	list-style-type: none;
+	padding: 0;
+}
+*/
+
+/* nav .active a {
+	font-weight: bold;
+	text-decoration: none;
+} */
+
+td.icon {
+	font-size: 3rem;
+	text-align: center;
+}
+
+.unitPagination {
+	overflow: hidden;
+	margin: 5rem 0 0;
+}
+.unitPagination a {
+	display: block;
+	float: left;
+	padding: 10px;
+
+	color: rgb(0, 0, 238);
+	text-transform: uppercase;
+	margin: 0;
+	border: 0;
+}
+.unitPagination a:hover {
+	color: white;
+	text-decoration: none;
+	background: rgb(0, 0, 238);
+}
+.unitPagination .next {
+	float: right;
+}
+.unitPagination .index {
+	float: none;
+	text-align: center;
+	margin: 0 auto;
+	width: 150px;
+}

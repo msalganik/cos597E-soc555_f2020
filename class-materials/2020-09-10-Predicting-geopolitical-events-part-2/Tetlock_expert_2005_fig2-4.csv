@@ -1,0 +1,49 @@
+Expertise,Term,Environment,Domain,Metric,Score
+Expert,Short-term,Stability,Domestic politics,Calibration,0.019
+Expert,Short-term,Stability,Domestic politics,Discrimination,0.028
+Expert,Short-term,Stability,Policy and performance,Calibration,0.024
+Expert,Short-term,Stability,Policy and performance,Discrimination,0.026
+Expert,Short-term,Stability,National security,Calibration,0.032
+Expert,Short-term,Stability,National security,Discrimination,0.031
+Expert,Short-term,Turbulence,Domestic politics,Calibration,0.016
+Expert,Short-term,Turbulence,Domestic politics,Discrimination,0.027
+Expert,Short-term,Turbulence,Policy and performance,Calibration,0.018
+Expert,Short-term,Turbulence,Policy and performance,Discrimination,0.025
+Expert,Short-term,Turbulence,National security,Calibration,0.019
+Expert,Short-term,Turbulence,National security,Discrimination,0.023
+Expert,Long-term,Stability,Domestic politics,Calibration,0.029
+Expert,Long-term,Stability,Domestic politics,Discrimination,0.025
+Expert,Long-term,Stability,Policy and performance,Calibration,0.025
+Expert,Long-term,Stability,Policy and performance,Discrimination,0.022
+Expert,Long-term,Stability,National security,Calibration,0.03
+Expert,Long-term,Stability,National security,Discrimination,0.019
+Expert,Long-term,Turbulence,Domestic politics,Calibration,0.028
+Expert,Long-term,Turbulence,Domestic politics,Discrimination,0.021
+Expert,Long-term,Turbulence,Policy and performance,Calibration,0.02
+Expert,Long-term,Turbulence,Policy and performance,Discrimination,0.015
+Expert,Long-term,Turbulence,National security,Calibration,0.024
+Expert,Long-term,Turbulence,National security,Discrimination,0.022
+Dilettantes,Short-term,Stability,Domestic politics,Calibration,0.024
+Dilettantes,Short-term,Stability,Domestic politics,Discrimination,0.021
+Dilettantes,Short-term,Stability,Policy and performance,Calibration,0.028
+Dilettantes,Short-term,Stability,Policy and performance,Discrimination,0.018
+Dilettantes,Short-term,Stability,National security,Calibration,0.023
+Dilettantes,Short-term,Stability,National security,Discrimination,0.022
+Dilettantes,Short-term,Turbulence,Domestic politics,Calibration,0.026
+Dilettantes,Short-term,Turbulence,Domestic politics,Discrimination,0.028
+Dilettantes,Short-term,Turbulence,Policy and performance,Calibration,0.027
+Dilettantes,Short-term,Turbulence,Policy and performance,Discrimination,0.029
+Dilettantes,Short-term,Turbulence,National security,Calibration,0.016
+Dilettantes,Short-term,Turbulence,National security,Discrimination,0.021
+Dilettantes,Long-term,Stability,Domestic politics,Calibration,0.02
+Dilettantes,Long-term,Stability,Domestic politics,Discrimination,0.016
+Dilettantes,Long-term,Stability,Policy and performance,Calibration,0.022
+Dilettantes,Long-term,Stability,Policy and performance,Discrimination,0.022
+Dilettantes,Long-term,Stability,National security,Calibration,0.021
+Dilettantes,Long-term,Stability,National security,Discrimination,0.016
+Dilettantes,Long-term,Turbulence,Domestic politics,Calibration,0.015
+Dilettantes,Long-term,Turbulence,Domestic politics,Discrimination,0.024
+Dilettantes,Long-term,Turbulence,Policy and performance,Calibration,0.014
+Dilettantes,Long-term,Turbulence,Policy and performance,Discrimination,0.022
+Dilettantes,Long-term,Turbulence,National security,Calibration,0.023
+Dilettantes,Long-term,Turbulence,National security,Discrimination,0.021

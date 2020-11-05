@@ -1,0 +1,139 @@
+---
+title: "Lorenz"
+output: html_notebook
+---
+
+# this code draws heavily on the following sources:
+# - Vignette to the package deSolve https://cran.r-project.org/web/packages/deSolve/index.html
+
+```{r}
+rm(list = ls())
+# based on https://stackoverflow.com/questions/18931006/how-to-suppress-warning-messages-when-loading-a-library
+shhh <- suppressPackageStartupMessages # It's a library, so shhh!
+shhh(library(tidyverse))
+shhh(library(deSolve))
+```
+
+```{r}
+# This is the Lorenz system
+Lorenz <- function(t, state, parameters) {
+    with(as.list(c(state, parameters)), {
+        dX <- s * (Y - X)
+        dY <- X * (r - Z) - Y
+        dZ <- X * Y - b * Z
+        list(c(dX, dY, dZ))
+    })
+}
+```
+
+```{r}
+# calculate mean distance between two points
+# TODO clean up code some
+
+calculate_mean_distance <- function(trajectory, sample_size  = 100) {
+
+  temp <- trajectory %>%
+    select(x, y, z) %>%
+    sample_n(sample_size)
+
+  temp1 <- temp %>%
+    rename(x1 = x, y1 = y, z1 = z)
+  
+  temp2 <- temp %>%
+    rename(x2 = x, y2 = y, z2 = z)
+
+  pairs <- crossing(temp1, temp2) %>%
+    mutate(distance = sqrt((x1 - x2)^2 + (y1 - y2)^2 + (z1- z2)^2)) %>%
+    mutate(ln_distance = log(distance, base = exp(1))) %>%
+    filter(distance != 0) 
+  # last step is remove pairs of distnace 0 because this is the same point being compared to itself (see how crossing() works)
+
+  return(mean(pairs$distance))
+}
+```
+
+
+# Sensitive dependence on initial conditions
+
+```{r}
+set.seed(08544)
+parameters <- c(s = 10, r = 28, b = 8/3)
+times <- seq(0, 50, by = 0.01)
+results <- list()
+
+true_initial_conditions <- c(X = 2.454134, Y = 1.370683, Z = 22.316543)
+trajectory_1 <- ode(y = true_initial_conditions, times = times, func = Lorenz, parms = parameters)
+trajectory_1 <- tibble(time = trajectory_1[, "time"], 
+                       x = trajectory_1[, "X"],
+                       y = trajectory_1[, "Y"], 
+                       z = trajectory_1[, "Z"])
+
+measurement_error_vec <- c(10^-2, 10^-4, 10^-6, 10^-8, 10^-10, 10^-12)
+i <- 0 
+for (measurement_error in measurement_error_vec) {
+  i <- i + 1
+  
+  measured_initial_conditions <- true_initial_conditions + c(measurement_error, 0, 0)
+
+  trajectory_2 <- ode(y = measured_initial_conditions, times = times, func = Lorenz, parms = parameters)
+  trajectory_2 <- tibble(time = trajectory_2[, "time"], 
+                         x = trajectory_2[, "X"],
+                         y = trajectory_2[, "Y"], 
+                         z = trajectory_2[, "Z"])
+  
+  trajectories <- left_join(x = trajectory_1, y = trajectory_2, 
+                            by = "time", 
+                            suffix = c(".1", ".2"))
+  
+  trajectories <- trajectories %>%
+    mutate(distance = sqrt(((x.1 - x.2)^2 + (y.1 - y.2)^2 + (z.1 - z.2)^2))) %>%
+    mutate(ln_distance = log(distance, base = exp(1)))
+  
+  results[[i]] <- trajectories %>%
+    select(time, distance, ln_distance) %>%
+    mutate(measurement_error = measurement_error)
+  
+  rm(trajectory_2, trajectories, measurement_error)
+} 
+
+data_to_plot <- 
+  bind_rows(results) %>%
+  mutate(measurement_error = factor(measurement_error, levels = measurement_error_vec)) 
+
+ggplot(data_to_plot, aes(x = time, y = distance, color = measurement_error)) + 
+  geom_point() +
+  geom_hline(yintercept = calculate_mean_distance(trajectory_1))
+
+# Everything works more clearly on the ln scale for reason why see Strogatz (1994) Sec 9.3
+ggplot(data_to_plot, aes(x = time, y = ln_distance, color = measurement_error)) +
+  geom_line() + 
+  geom_hline(yintercept = log(calculate_mean_distance(trajectory_1), base = exp(1)))
+```
+
+```{r}
+time_horizon <- data_to_plot %>%
+  group_by(measurement_error) %>%
+  filter(ln_distance > log(calculate_mean_distance(trajectory_1), base = exp(1))) %>%
+  summarize(time_to_baseline = min(time)) 
+
+ggplot(time_horizon, aes(x = measurement_error, y = time_to_baseline)) +
+  geom_point()
+```
+
+
+# Predictability
+
+```{r}
+
+library("GGally")
+trajectory <- trajectory_1 %>%
+  mutate(x_1 = lag(x, n = 1), y_1 = lag(y, n = 1), z_1 = lag(z, n = 1), 
+         x_2 = lag(x, n = 2), y_2 = lag(y, n = 2), z_2 = lag(z, n = 2)) %>%
+  drop_na()
+
+trajectory %>%
+  select(-time, -x_2, -y_2, -z_2) %>%
+  sample_n(100) %>% # sampling just makes things run faster and plots clearer
+  ggpairs()
+
+```

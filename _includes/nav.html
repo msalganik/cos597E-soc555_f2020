@@ -1,0 +1,14 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarNav">
+  	<ul class="navbar-nav">
+	  	{% assign pages = (site.pages | sort: "menuPosition") %}
+  		{% for node in pages %}
+	  	{% if page.url == node.url %}
+	  	<li class="nav-item active"><a href="{{ site.baseurl }}{{node.url}}" class="nav-link">{{node.menuItem}}</a></li>
+	  	{% else %}
+	  	<li class="nav-item"><a href="{{ site.baseurl }}{{node.url}}" class="nav-link">{{node.menuItem}}</a></li>
+	  	{% endif %}
+	  	{% endfor %}
+		</ul>
+	</div>
+</nav>

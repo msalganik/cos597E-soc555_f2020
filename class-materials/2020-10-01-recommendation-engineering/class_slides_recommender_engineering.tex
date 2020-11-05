@@ -1,0 +1,76 @@
+\documentclass[aspectratio=169]{beamer}
+\setbeamertemplate{navigation symbols}{}
+\usepackage{color, amsmath, comment, subfigure}
+\usepackage{url}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title[]{Comments slides for Thursday, Oct 1:\\Recommender systems; engineering limits}
+\author[]{Matthew J. Salganik}
+\institute[]{}
+\date[]{COS 597E/SOC 555 Limits to prediction\\Fall 2020, Princeton University}
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{\titlepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{}
+
+Observations/comments/questions/provocations:
+\begin{itemize}
+\item predicting the present vs inverse prediction vs predicting the future
+\pause
+\item Learning latent factors destroys value from additional predictors
+\pause
+\item I liked the Netflix Prize.  Falls on organizer of mass collaboration to pick a good problem. Also, Netflix Prize vs ImageNet.
+\pause
+\item Algorithm vs mechanism
+\end{itemize}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+
+\begin{itemize}
+\item I loved the idea of a magic barrier at 0.73 in movie recommendation.  I wondered if this was across datasets or within. If across, it could be strong evidence of a fundamental limit. (What data is available when they hit this barrier?)
+\pause
+\item Very careful paper by Herlocket et al (2004) on rec sys doesn't talk about bias and fairness.
+\pause
+\item predictive accuracy metrics (discussed briefly subsets and normalized mean absolute error), classification accuracy metrics (not as interesting to me), and rank accuracy metrics (interesting to me, but what about ties); I like the idea of comparing them empirically but there are other ways to compare too
+\end{itemize}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{}
+
+Observations/comments/questions/provocations:
+\begin{itemize}
+\item Netflix Prize vs real Netflix. FDA:  
+\begin{itemize}
+\item Phase I: Discovery \& Development.
+\item Phase II: Preclinical Research. (paper focusing only on accuracy)
+\item Phase III: Clinical Research. (deployed setting where accuracy is not the only objective and there are engineering constraints)
+\item Phase IV: FDA Review.
+\item Phase V: FDA Post-Market Safety Monitoring.
+\end{itemize}
+\pause
+\item Netflix Prize vs real Netflix: Lab experiments vs field experiments.  How can we measure this difference empirically.
+\pause
+\item How do the kind of measurement problems you worked on in class today combine?  If there is an error term made up of the sum of two random variables $A$ and $B$, then $Var(A+B) = Var(A) + Var(B) + 2Cov(A,B)$.
+\end{itemize}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{\titlepage}
+
+
+\end{document}

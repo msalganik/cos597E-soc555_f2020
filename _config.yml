@@ -1,0 +1,27 @@
+# configuration
+# fill in the course details
+
+courseName: Limits to Prediction
+
+# small title that is at the top of every page
+subtitle: COS597E/SOC555, Fall 2020, Princeton University
+
+# baseurl is the same as the name of the repository
+baseurl: /cos597E-soc555_f2020
+
+# url where the required reading is available to download
+docsUrl: ""
+
+# url where the student's grading info is kept
+gradingUrl: ""
+
+# change only if you know what you are doing
+collections:
+  syllabus:
+    output: true
+defaults:
+  - scope:
+      path: ""
+      type: syllabus
+    values:
+      layout: unit

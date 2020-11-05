@@ -1,0 +1,140 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r setup, include=FALSE}
+rm(list = ls())
+library(tidyverse)
+```
+
+
+# Calculate probability score
+
+_Here is some data from a real forecasting effort done by the Canadian Intelligence Assessment Secretariat (roughly the Canadian CIA): https://github.com/msalganik/cos597E-soc555_f2020/tree/master/data/mandel_accuracy_2014  Pick someone comfortable doing live coding. Using the programming language of your choice, calculate what Tetlock calls the probability score._
+
+```{r}
+data <- read_csv("mandel_accuracy_2014.csv")
+```
+
+```{r}
+prob_score <- mean((data$Forecast - data$Outcome)^2)
+print(paste("The probability score is:", round(prob_score, 3)))
+```
+
+Note that the probability score is the same as the mean-squared error.
+
+# Calculate calibration index, discriminiation index, and variability index
+
+_Using this same data, calculate the calibration index, discrimination index, and variability index.  Don’t use pre-existing packages. You should code this up yourself._
+
+First, I reorganized the data so there is one row for each prediction category.
+```{r}
+grouped_data <- data %>% 
+  group_by(Forecast) %>%
+  summarize(EventRate = mean(Outcome), n = n())
+```
+
+Here's what the new data frame looks like:
+```{r}
+print(grouped_data)
+```
+
+Now we can calculate calibration.
+```{r}
+grouped_data <- grouped_data %>%
+  mutate(calibration_term = (Forecast - EventRate)^2) %>%
+  mutate(weighted_calibration_term = n * calibration_term)
+
+calibration <- sum(grouped_data$weighted_calibration_term)/sum(grouped_data$n)
+print(paste("The calibration is:", round(calibration, 3)))
+```
+
+We can also make a graph to look at the calibration.
+```{r}
+ggplot(grouped_data, aes(x = Forecast, y = EventRate, size = n)) +
+  geom_point() +
+  xlim(0, 1) +
+  ylim(0, 1) +
+  coord_fixed()
+```
+
+Now let's calculate discrimination.
+
+```{r}
+base_rate_overall <- mean(data$Outcome)
+grouped_data <- grouped_data %>%
+  mutate(discrimination_term = (EventRate - base_rate_overall)^2) %>%
+  mutate(weighted_discrimination_term = n * discrimination_term)
+
+discrimination <- sum(grouped_data$weighted_discrimination_term)/sum(grouped_data$n)
+print(paste("The discrimination is:", round(discrimination, 3)))
+```
+
+Now let's calculate the variability index.
+```{r}
+variability <- base_rate_overall * (1 - base_rate_overall)
+print(paste("The variability is:", round(variability, 3)))
+```
+
+# Change the data 
+
+_Make changes to the predictions that would improve the calibration. What impact do these changes have on discrimination, variability, and probability score?_
+
+There are many ways to go about this.
+
+From the graph above we can see that when the predicted probability was 0 the event occurred more than it should, and when the predicted probability was 1 the event occurred less than it should. Therefore, for all cases where the original prediction was 0 and the event occurred, I'm going to change the prediction to 1.  
+
+These changes should decrease the calibration index (in other words, improve calibration).  It should also increase discrimination.  It will leave the variability index unchanged because we didn't change any outcomes.  It will also decrease probability score (in other words, make the predictions more accurate).
+
+```{r}
+modified_data <- data %>%
+  mutate(Forecast = ifelse(Forecast == 0 & Outcome == 1, 1, Forecast))
+```
+
+```{r}
+modified_grouped_data <- modified_data %>% 
+  group_by(Forecast) %>%
+  summarize(EventRate = mean(Outcome), n = n())
+```
+
+Now let's make a graph to check calibration. Compared to the earlier graph we can see that the predictions at 0 and 1 are better calibrated.
+```{r}
+ggplot(modified_grouped_data, aes(x = Forecast, y = EventRate, size = n)) +
+  geom_point() +
+  xlim(0, 1) +
+  ylim(0, 1) +
+  coord_fixed()
+```
+
+Calculate calibration:
+```{r}
+modified_grouped_data <- modified_grouped_data %>%
+  mutate(calibration_term = (Forecast - EventRate)^2) %>%
+  mutate(weighted_calibration_term = n * calibration_term)
+
+modified_calibration <- sum(modified_grouped_data$weighted_calibration_term)/sum(modified_grouped_data$n)
+print(paste("The modified calibration is:", round(modified_calibration, 3)))
+```
+
+This calibration is lower than before, which is a sign of improvement.
+
+Calculate discrimination:
+```{r}
+modified_grouped_data <- modified_grouped_data %>%
+  mutate(discrimination_term = (EventRate - base_rate_overall)^2) %>%
+  mutate(weighted_discrimination_term = n * discrimination_term)
+
+discrimination <- sum(modified_grouped_data$weighted_discrimination_term)/sum(modified_grouped_data$n)
+print(paste("The discrimination is:", round(discrimination, 3)))
+```
+
+This discrimination is higher than befoe, which is a sign of improvement.
+
+```{r}
+prob_score <- mean((modified_data$Forecast - modified_data$Outcome)^2)
+print(paste("The probability score is:", round(prob_score, 3)))
+```
+
+This probability score is lower than before, which is a sign of improvement.
+

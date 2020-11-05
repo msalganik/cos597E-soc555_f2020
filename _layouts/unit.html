@@ -1,0 +1,47 @@
+---
+layout: default
+---
+
+<p><b>{{ page.day }} / Week {{ page.week }}</b></p>
+
+<h1>
+	{{ page.title }}
+	{% for tag in page.tags %}
+		<b>#{{ tag }}</b>
+	{% endfor %}
+</h1>
+
+<img src="{{ site.baseurl }}/style/unit.jpg" width="100%">
+
+{{content}}
+
+
+{% capture the_collection %}{{page.collection}}{% endcapture %}
+{% if page.collection %}
+	{% assign  document = site[the_collection] | sort: "week"   %}
+{% endif %}
+{% for links in document %}
+  {% if links.title == page.title %}
+    {% unless forloop.first %}
+      {% assign prevurl = prev.url %}
+    {% endunless %}
+    {% unless forloop.last %}
+      {% assign next = document[forloop.index] %}
+      {% assign nexturl = next.url %}
+    {% endunless %}
+  {% endif %}
+  {% assign prev = links %}
+{% endfor %}
+
+<script>
+document.body.onkeyup = function(e){
+if (e.keyCode == '37') { window.location = '{{prevurl}}'; }
+if (e.keyCode == '39') { window.location = '{{nexturl}}'; }
+};
+</script>
+
+<div class="unitPagination">
+	{% if prevurl %}<a href="{{ site.baseurl }}{{prevurl}}" class="prev">⇦ previous week</a>{% endif %}
+	{% if nexturl %}<a href="{{ site.baseurl }}{{nexturl}}" class="next">next week ⇨</a>{% endif %}
+	<a href="{{ site.baseurl }}/reading.html" class="index">unit index</a>
+</div>

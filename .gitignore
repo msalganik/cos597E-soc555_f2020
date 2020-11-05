@@ -1,0 +1,11 @@
+_site/*
+*.toc
+*.snm
+*.gz
+*.log
+*.nav
+*.out
+*.aux
+*.DS_Store
+class-materials/.Rhistory
+/vendor

@@ -1,0 +1,95 @@
+\documentclass[aspectratio=169]{beamer}
+\setbeamertemplate{navigation symbols}{}
+\usepackage{color, amsmath, comment, subfigure}
+\usepackage{url}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title[]{Comments slides for Tuesday, October 27:\\Healthcare, part 1}
+\author[]{Matthew J. Salganik}
+\institute[]{}
+\date[]{COS 597E/SOC 555 Limits to prediction\\Fall 2020, Princeton University}
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{\titlepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{}
+
+Observations/comments/questions/provocations based on Dawes, Faust and Meehl (clinical versus actuarial judgement):
+\begin{itemize}
+\item Clinic judgement seems bad . . .
+\pause
+\item How could clinical judgement be better than actuarial judgement if they both have access to the same data?
+\pause
+\item The power of labels: ``Actuarial'' vs ``statistical'' vs ``algorithmic''
+\pause
+\item ``broken leg'' problem: when an expert can override even a good actuarial model? Are ``broken legs'' a source of limits to prediction?
+\pause
+\item They seem aware of the limits of actuarial prediction in some cases, but this is not explored in details.  When do we care about actuarial vs clinical and when we do we care about absolute level of accuracy of actuarial?
+\pause
+\item Nothing here about bias in-bias out or differential accuracy by subgroups.  How does that compare for clinical vs actuarial methods?
+\pause
+\item What is better evidence of a limit failure of actuarial (with bounded information) or clinical (with unlimited information)? 
+\end{itemize}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{}
+
+Observations/comments/questions/provocations based on Caruana et al. (pneumonia and hospital readmission):
+\begin{itemize}
+\item If treatment intensity is a confounder, why not include it in the model? 
+\pause
+\item What does it mean to ``repair'' a model?
+\pause
+\item If these models were deployed would they become less accurate? Does that make them less useful? If not, is accuracy a good measure?
+\pause
+\item They claim term importance follows a power law distribution: a few terms are very important and a lot of terms are a little important. Has anyone seen systematic evidence of this?
+\pause
+\item Missing data seemed to be handled very roughly 
+\pause
+\item I wonder how both of these claims have held up: 1) GA$^2$Ms give state-of-the-art predictive performance and 2) GA$^2$Ms are interpretable
+\end{itemize}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{}
+
+Observations/comments/questions/provocations based on Gulshan et al (diabetic reinopathy):
+\begin{itemize}
+\item A breakdown of ``predicting the present'' vs ``predicting the future''
+\pause
+\item What is the value of ``proof of concept''/``hype maximizing'' studies?  This is a very specially selected problem (Wong and Bressler).
+\pause
+\item Is this clinical or actuarial? It seems like building a model of a clinician. 
+\pause
+\item How much extra confidence do you have in the findings given that the training data comes from two settings (US and India) and some of the test data comes from a third setting (France)?  How can this extra confidence be quantified?
+\pause
+\item What should we conclude that the ophthalmologists don't agree? Can we use the same averaging procedure in other settings (e.g., civil war)?
+\pause
+\item Reporting of data and results seems better than typical ML paper
+\pause
+\item Nice that sensitivity/specificity trade-off can be tuned for the setting
+\pause
+\item Surprising use of ImageNet
+\pause
+\item Are we more willing to accept uninterpretable models when the input is images?
+\end{itemize}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{\titlepage}
+
+
+\end{document}
