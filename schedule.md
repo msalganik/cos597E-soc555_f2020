@@ -186,8 +186,8 @@ Reading question (these questions are designed to help you think about the readi
 
 - [Pre-read](https://msalganik.github.io/cos597E-soc555_f2020/class-materials/2020-11-17-pre-read-privacy-ethics-part-1.pdf)
 - Christl et al. 2017. [Corporate surveillance in everyday life.](https://crackedlabs.org/dl/CrackedLabs_Christl_CorporateSurveillance.pdf) (OK to skim.)
-- Kosinski, Stillwell, Graepel. 2013. [Private traits and attributes are predictable from digital records of human behavior.](https://www.pnas.org/content/110/15/5802) PNAS.
 - Duhigg. 2012. [How companies learn your secrets.](https://www.nytimes.com/2012/02/19/magazine/shopping-habits.html) New York Times Magazine.
+- Kosinski, Stillwell, Graepel. 2013. [Private traits and attributes are predictable from digital records of human behavior.](https://www.pnas.org/content/110/15/5802) PNAS.
 
 
 ### Thursday, November 19: Privacy and ethics (part 2)
