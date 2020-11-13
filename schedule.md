@@ -184,7 +184,7 @@ Reading question (these questions are designed to help you think about the readi
 
 ### Tuesday, November 17: Privacy and ethics (part 1)
 
-- Pre-read (coming soon)
+- [Pre-read](https://msalganik.github.io/cos597E-soc555_f2020/class-materials/2020-11-17-pre-read-privacy-ethics-part-1.pdf)
 - Christl et al. 2017. [Corporate surveillance in everyday life.](https://crackedlabs.org/dl/CrackedLabs_Christl_CorporateSurveillance.pdf) (OK to skim.)
 - Kosinski, Stillwell, Graepel. 2013. [Private traits and attributes are predictable from digital records of human behavior.](https://www.pnas.org/content/110/15/5802) PNAS.
 - Duhigg. 2012. [How companies learn your secrets.](https://www.nytimes.com/2012/02/19/magazine/shopping-habits.html) New York Times Magazine.
@@ -192,6 +192,7 @@ Reading question (these questions are designed to help you think about the readi
 
 ### Thursday, November 19: Privacy and ethics (part 2)
 
+- Pre-read (coming soon)
 - Hardt. 2014. [How big data is unfair.](https://medium.com/@mrtz/how-big-data-is-unfair-9aa544d739de) Medium.
 - Obermeyer et al. 2019. [Dissecting racial bias in an algorithm used to manage the health of populations.](https://science.sciencemag.org/content/366/6464/447) Science.
 - Benjamin. 2019. [Assessing Risk, Automating Racism.](https://science.sciencemag.org/content/366/6464/421) Science.
