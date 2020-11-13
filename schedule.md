@@ -192,6 +192,11 @@ Reading question (these questions are designed to help you think about the readi
 
 ### Thursday, November 19: Privacy and ethics (part 2)
 
-Coming soon
+- Hardt. 2014. [How big data is unfair.](https://medium.com/@mrtz/how-big-data-is-unfair-9aa544d739de) Medium.
+- Obermeyer et al. 2019. [Dissecting racial bias in an algorithm used to manage the health of populations.](https://science.sciencemag.org/content/366/6464/447) Science.
+- Benjamin. 2019. [Assessing Risk, Automating Racism.](https://science.sciencemag.org/content/366/6464/421) Science.
+- Angwin & Larson. 2016. [Bias in Criminal Risk Scores Is Mathematically Inevitable, Researchers Say.](https://www.propublica.org/article/bias-in-criminal-risk-scores-is-mathematically-inevitable-researchers-say) ProPublica.
+- Chouldechova. 2017. [Fair prediction with disparate impact: A study of bias in recidivism prediction instruments.](https://arxiv.org/abs/1703.00056) Big Data.
+- Barabas et al. 2018. [Interventions over Predictions: Reframing the Ethical Debate for Actuarial Risk Assessment.](http://proceedings.mlr.press/v81/barabas18a/barabas18a.pdf) Conference on Fairness, Accountability, and Transparency.
 
 ### Tuesday, November 24: To be determined (last day of class)
