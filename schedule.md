@@ -184,6 +184,14 @@ Reading question (these questions are designed to help you think about the readi
 
 ### Tuesday, November 17: Privacy and ethics (part 1)
 
+- Pre-read (coming soon)
+- Christl et al. 2017. [Corporate surveillance in everyday life.](https://crackedlabs.org/dl/CrackedLabs_Christl_CorporateSurveillance.pdf)
+- Kosinski, Stillwell, Graepel. 2013. [Private traits and attributes are predictable from digital records of human behavior.](https://www.pnas.org/content/110/15/5802) PNAS.
+- Duhigg. 2012. [How companies learn your secrets.](https://www.nytimes.com/2012/02/19/magazine/shopping-habits.html) New York Times Magazine.
+
+
 ### Thursday, November 19: Privacy and ethics (part 2)
+
+Coming soon
 
 ### Tuesday, November 24: To be determined (last day of class)
