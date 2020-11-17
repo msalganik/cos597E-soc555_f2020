@@ -192,7 +192,7 @@ Reading question (these questions are designed to help you think about the readi
 
 ### Thursday, November 19: Privacy and ethics (part 2)
 
-- Pre-read (coming soon)
+- [Pre-read](https://msalganik.github.io/cos597E-soc555_f2020/class-materials/pre-read-privacy-ethics-part-2.pdf)
 - Hardt. 2014. [How big data is unfair.](https://medium.com/@mrtz/how-big-data-is-unfair-9aa544d739de) Medium.
 - Obermeyer et al. 2019. [Dissecting racial bias in an algorithm used to manage the health of populations.](https://science.sciencemag.org/content/366/6464/447) Science.
 - Benjamin. 2019. [Assessing Risk, Automating Racism.](https://science.sciencemag.org/content/366/6464/421) Science.
