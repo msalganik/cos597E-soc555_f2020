@@ -31,6 +31,8 @@ Some days the main activity might be to discuss a series of questions about the 
   - Wednesday, November 4, 4 - 5pm
   - Wednesday, November 11, 4 - 5pm
   - Tuesday, November 17, 3 - 4pm
+  - Tuesday, December 1, 2 - 3pm
+  - Monday, December 7, 11 - noon
 
 (All times U.S. Eastern time.)
 
