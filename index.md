@@ -1,5 +1,5 @@
 ---
-title: "Course name"
+title: "Limits to Prediction"
 layout: home
 menuItem: "Home"
 menuPosition: 1
